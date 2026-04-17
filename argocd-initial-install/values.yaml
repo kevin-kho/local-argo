@@ -1,0 +1,20 @@
+# https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+
+redis-ha:
+  enabled: true
+
+redisSecretInit:
+  enabled: true
+  podAnnotations:
+    sidecar.istio.io/inject: "false"
+
+server:
+  replicas: 2
+  env:
+    - name: ARGOCD_API_SERVER_REPLICAS
+      value: '2'
+  extraArgs:
+    - --insecure
+
+repoServer:
+  replicas: 2

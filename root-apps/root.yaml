@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # If application is deleted, resource itself is deleted
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io
+  name: root
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd # where the child app manifests will be created/applied
+    name: in-cluster
+  project: default
+  source:
+    path: manifests/argocd/applications
+    repoURL: https://github.com/kevin-kho/local-argo
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
