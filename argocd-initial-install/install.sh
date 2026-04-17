@@ -1,4 +1,5 @@
 kubectl create namespace argocd
+kubectl label namespace argocd istio-injection=enabled
 
 
 helm repo add argo https://argoproj.github.io/argo-helm
