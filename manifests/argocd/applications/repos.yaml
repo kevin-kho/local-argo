@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: repos
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: manifests/argocd/repos
+    repoURL: https://github.com/kevin-kho/local-argo
+    targetRevision: HEAD
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
