@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-local-argo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  name: local-argocd # Repository name for display
+  project: default
+  url: https://github.com/kevin-kho/local-argo # This is a public repo
+  type: git
