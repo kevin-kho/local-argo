@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: alpine-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          # - namespace: argocd
+  template:
+    metadata:
+      name: cloudops-alpine-{{namespace}}
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        path: manifests/alpine/sts
+        repoURL: https://github.com/kevin-kho/local-argo.git
+        targetRevision: HEAD
+      destination:
+        name: in-cluster
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
