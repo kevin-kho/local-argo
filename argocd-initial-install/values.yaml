@@ -8,13 +8,5 @@ redisSecretInit:
   podAnnotations:
     sidecar.istio.io/inject: "false"
 
-server:
-  replicas: 2
-  env:
-    - name: ARGOCD_API_SERVER_REPLICAS
-      value: '2'
   extraArgs:
     - --insecure
-
-repoServer:
-  replicas: 2

@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # If application is deleted, resource itself is deleted
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    name: in-cluster
+  project: default
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: 9.5.2 # v 3.3.7
+    helm:
+      releaseName: argocd
+      valuesObject:
+        redis-ha:
+          enabled: true
+          replicas: 3
+          # This forces pod rollout on chart change
+          annotations:
+            rollme: "{{ now | unixEpoch }}"
+
+        redisSecretInit:
+          enabled: true
+          podAnnotations:
+            sidecar.istio.io/inject: "false"
+
+          params:
+            server.insecure: "true"
+            dexserver.disable.tls: "true"
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
