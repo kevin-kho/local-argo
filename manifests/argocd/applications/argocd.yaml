@@ -19,11 +19,7 @@ spec:
       releaseName: argocd
       valuesObject:
         redis-ha:
-          enabled: true
-          replicas: 3
-          # This forces pod rollout on chart change
-          annotations:
-            rollme: "{{ now | unixEpoch }}"
+          enabled: false
 
         redisSecretInit:
           enabled: true
