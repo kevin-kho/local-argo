@@ -7,7 +7,10 @@ spec:
   generators:
     - list:
         elements:
-          # - namespace: argocd
+          - namespace: argocd
+          - namespace: commissions
+          - namespace: scai
+          - namespace: workflow
   template:
     metadata:
       name: cloudops-alpine-{{namespace}}
