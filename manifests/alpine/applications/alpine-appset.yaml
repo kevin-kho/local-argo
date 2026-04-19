@@ -13,7 +13,7 @@ spec:
           - namespace: workflow
   template:
     metadata:
-      name: cloudops-alpine-{{namespace}}
+      name: alpine-{{namespace}}
       namespace: argocd
     spec:
       project: default
