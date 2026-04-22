@@ -8,6 +8,7 @@ spec:
     - .
   hosts:
     - github.com
+    - release-assets.githubusercontent.com
   location: MESH_EXTERNAL
   ports:
     - name: https
