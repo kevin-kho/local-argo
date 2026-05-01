@@ -12,17 +12,17 @@ stringData:
   url: https://kyverno.github.io/kyverno/
   type: helm
 ---
-apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: kyverno-github-io
-  namespace: argocd
-spec:
-  hosts:
-    - kyverno.github.io
-  location: MESH_EXTERNAL # Indicates it's outside the mesh
-  ports:
-    - number: 443
-      name: https
-      protocol: HTTPS
-  resolution: DNS
+# apiVersion: networking.istio.io/v1alpha3
+# kind: ServiceEntry
+# metadata:
+#   name: kyverno-github-io
+#   namespace: argocd
+# spec:
+#   hosts:
+#     - kyverno.github.io
+#   location: MESH_EXTERNAL # Indicates it's outside the mesh
+#   ports:
+#     - number: 443
+#       name: https
+#       protocol: HTTPS
+#   resolution: DNS

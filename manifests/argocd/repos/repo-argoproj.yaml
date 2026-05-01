@@ -12,17 +12,17 @@ stringData:
   url: https://argoproj.github.io/argo-helm
   type: helm
 ---
-apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: argoproj-chart
-  namespace: argocd
-spec:
-  hosts:
-    - argoproj.github.io
-  location: MESH_EXTERNAL # Indicates it's outside the mesh
-  ports:
-    - number: 443
-      name: https
-      protocol: HTTPS
-  resolution: DNS
+# apiVersion: networking.istio.io/v1alpha3
+# kind: ServiceEntry
+# metadata:
+#   name: argoproj-chart
+#   namespace: argocd
+# spec:
+#   hosts:
+#     - argoproj.github.io
+#   location: MESH_EXTERNAL # Indicates it's outside the mesh
+#   ports:
+#     - number: 443
+#       name: https
+#       protocol: HTTPS
+#   resolution: DNS
