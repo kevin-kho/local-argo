@@ -5,10 +5,10 @@ metadata:
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
   name: argocd
-  namespace: argocd
+  namespace: argocd-prod
 spec:
   destination:
-    namespace: argocd
+    namespace: argocd-prod
     name: in-cluster
   project: default
   source:

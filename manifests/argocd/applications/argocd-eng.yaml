@@ -4,11 +4,11 @@ metadata:
   # If application is deleted, resource itself is deleted
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
-  name: argocd
+  name: argocd-eng
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: argocd-prod
     name: in-cluster
   project: default
   source:
