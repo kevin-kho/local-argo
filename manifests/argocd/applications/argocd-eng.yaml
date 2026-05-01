@@ -18,6 +18,10 @@ spec:
     helm:
       releaseName: argocd
       valuesObject:
+        crds:
+          install: false
+        createClusterRoles: false
+
         redis-ha:
           enabled: false
 

@@ -1,0 +1,17 @@
+# https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+
+crds:
+  install: false
+
+createClusterRoles: false
+
+redis-ha:
+  enabled: false
+
+redisSecretInit:
+  enabled: true
+  podAnnotations:
+    sidecar.istio.io/inject: "false"
+
+  extraArgs:
+    - --insecure
