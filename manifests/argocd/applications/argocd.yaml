@@ -24,6 +24,9 @@ spec:
     helm:
       releaseName: argocd
       valuesObject:
+        controller:
+          replicas: 2
+
         redis-ha:
           enabled: false
 
